@@ -10,6 +10,6 @@ router.put('/user/:id', userController.update)
 router.delete('/user/:id', userController.delete)
 
 router.get('/gejala', gejalaController.getGejala)
-router.post('/gejala', gejalaController.postGejala)
+router.post('/gejala', gejalaController.postGejalaJson)
 
 module.exports = router

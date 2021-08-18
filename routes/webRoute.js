@@ -6,4 +6,6 @@ router.get('/', (req, res) => {
   res.render('index')
 })
 
+router.post('/', gejalaController.postGejala)
+
 module.exports = router

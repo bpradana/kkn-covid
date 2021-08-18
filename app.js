@@ -1,8 +1,11 @@
 // Modules
-const app = require('express')()
+const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 require('dotenv').config()
+
+// App
+const app = express()
 
 // Constants
 const PORT = process.env.PORT || 3000
@@ -22,6 +25,7 @@ mongoose.connect(
 
 // Routes
 app.use(bodyParser.json());
+app.use(express.static('./public'))
 app.use('/', require('./routes/webRoute'))
 app.use('/api/v1', require('./routes/apiRoute'))
 

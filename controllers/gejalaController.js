@@ -2,7 +2,7 @@ exports.getGejala = async function (req, res) {
   await res.send('use post method [sakit_tenggorokan, masalah_pernapasan, menghadiri_pertemuan, batuk_kering, demam]')
 }
 
-exports.postGejala = async function (req, res) {
+function deteksi_covid(req) {
   let status_covid
 
   if (req.body.sakit_tenggorokan) {
@@ -66,9 +66,17 @@ exports.postGejala = async function (req, res) {
       }
     }
   }
-  
-  await res.send({
+
+  return {
     status_covid: status_covid,
     gejala: req.body
-  })
+  }
+}
+
+exports.postGejalaJson = async function (req, res) {
+  await res.send(deteksi_covid(req))
+}
+
+exports.postGejala = async function (req, res) {
+  await res.render('hasil', { 'hasil_deteksi': deteksi_covid(req) })
 }
