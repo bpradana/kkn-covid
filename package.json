@@ -1,0 +1,27 @@
+{
+  "name": "kkn-covid",
+  "version": "1.0.0",
+  "description": "website deteksi covid-19",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bpradana/kkn-covid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bpradana/kkn-covid/issues"
+  },
+  "homepage": "https://github.com/bpradana/kkn-covid#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.7",
+    "nodemon": "^2.0.12"
+  }
+}
