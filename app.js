@@ -26,8 +26,7 @@ mongoose.connect(
 // Routes
 app.use(bodyParser.json());
 app.use(express.static('./public'))
-app.use('/', require('./routes/webRoute'))
-app.use('/api/v1', require('./routes/apiRoute'))
+app.use('/', require('./routes/mainRoute'))
 
 // Run server
 app.listen(PORT, () => {
