@@ -4,6 +4,7 @@ const gejalaController = require('../controllers/gejalaController')
 
 router.get('/', (req, res) => {
   res.render('index', {
+    title: 'index',
     konfirmasi: 1000,
     suspek: 1000,
     probable: 1000,
@@ -13,10 +14,14 @@ router.get('/', (req, res) => {
   })
 })
 
-router.post('/', gejalaController.postGejala)
+router.post('/deteksi', gejalaController.postGejala)
 
-router.get('/deteksi', (req, res) => {
-  res.render('deteksi')
+router.get('/deteksi/data-diri', (req, res) => {
+  res.render('./deteksi/data-diri', {
+    title: 'deteksi'
+  })
 })
+
+router.post('/deteksi/data-diri', gejalaController.postDataDiri)
 
 module.exports = router

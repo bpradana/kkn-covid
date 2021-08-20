@@ -24,7 +24,8 @@ mongoose.connect(
 )
 
 // Routes
-app.use(bodyParser.json());
+app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true}))
 app.use(express.static('./public'))
 app.use('/', require('./routes/mainRoute'))
 

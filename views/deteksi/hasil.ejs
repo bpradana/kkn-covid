@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../components/head') %>
+
+<body>
+
+  <div class="container navbar-padding col-xl-4 col-lg-5 col-md-6 col-sm-8">
+    <div class="card card-nav-tabs">
+      <div class="card-header <%= hasil_deteksi.status_covid === 'positive' ? 'card-header-danger' : 'card-header-success' %>">
+        <h3 class="card-title">
+          <i class="fas fa-virus"></i> Deteksi Mandiri COVID-19
+        </h3>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Halo, <%= hasil_deteksi.nama %>! Yuk cek kondisi kamu.</h4>
+        <div class="text-right">
+          <a href="/">
+            <button type="button" class="btn <%= hasil_deteksi.status_covid === 'positive' ? 'btn-danger' : 'btn-success' %>">
+              Beranda <i class="fas fa-home"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../components/footer') %>
+  <%- include('../components/scripts') %>
+</body>
+
+</html>

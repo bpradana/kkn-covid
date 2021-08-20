@@ -1,7 +1,9 @@
 <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"  color-on-scroll="100">
   <div class="container">
     <div class="navbar-translate">
-      <a class="navbar-brand" href="/">KKN UNS 380</a>
+      <a class="navbar-brand" href="<%= title === 'index' ? '#' : '/' %>">
+        <b>KKN UNS 380</b>
+      </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
@@ -14,18 +16,28 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="/deteksi" class="nav-link">
-                <i class="material-icons">apps</i> Deteksi Dini
+            <a href="<%= title === 'index' ? '#statistik' : '/#statistik' %>" class="nav-link">
+                <i class="fas fa-chart-area"></i> Statistik
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= title === 'index' ? '#nomor-penting' : '/#nomor-penting' %>" class="nav-link">
+                <i class="fas fa-phone-alt"></i> Nomor Penting
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="material-icons">apps</i> Nomor Penting
+                <i class="fas fa-info-circle"></i> Informasi
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/deteksi/data-diri" class="nav-link">
+                <i class="fas fa-virus"></i> Deteksi Dini
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="material-icons">apps</i> Informasi
+                <i class="fas fa-user"></i> Admin
             </a>
           </li>
         </ul>

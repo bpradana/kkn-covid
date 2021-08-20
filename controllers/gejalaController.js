@@ -68,6 +68,9 @@ function deteksi_covid(req) {
   }
 
   return {
+    nama: req.body.nama,
+    alamat: req.body.alamat,
+    no: req.body.no,
     status_covid: status_covid,
     gejala: req.body
   }
@@ -78,5 +81,10 @@ exports.postGejalaJson = async function (req, res) {
 }
 
 exports.postGejala = async function (req, res) {
-  await res.render('hasil', { 'hasil_deteksi': deteksi_covid(req) })
+  console.log(deteksi_covid(req))
+  await res.render('./deteksi/hasil', { 'hasil_deteksi': deteksi_covid(req) })
+}
+
+exports.postDataDiri = async function (req, res) {
+  await res.render('./deteksi/kuesioner', { 'data_diri': req.body })
 }
