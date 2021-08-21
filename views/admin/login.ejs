@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../components/head') %>
+
+<body>
+
+  <div class="container navbar-padding col-xl-3 col-lg-4 col-md-6 col-sm-8">
+    <div class="card card-nav-tabs">
+      <div class="card-header card-header-primary">
+        <h3 class="card-title">
+          Dashboard
+        </h3>
+      </div>
+      <div class="card-body">
+
+        <form action="/admin" method="post">
+          <div class="form-group bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Username" name="username">
+            </div>
+          </div>
+          <div class="form-group bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-key"></i>
+                </span>
+              </div>
+              <input type="password" class="form-control" placeholder="password" name="password">
+            </div>
+          </div>
+          <div class="text-right">
+            <a href="javascript:history.back()">
+              <button type="button" class="btn"><i class="fas fa-chevron-left"></i> Kembali</i></button>
+            </a>
+            <button type="submit" class="btn btn-primary">Login <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <%- include('../components/footer') %>
+  <%- include('../components/scripts') %>
+</body>
+
+</html>

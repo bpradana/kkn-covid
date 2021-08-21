@@ -1,4 +1,4 @@
-<nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"  color-on-scroll="100">
+<nav class="navbar navbar-color-on-scroll fixed-top navbar-expand-lg <%= title === 'index' ? 'navbar-transparent' : 'navbar-primary' %>"  color-on-scroll="100">
   <div class="container">
     <div class="navbar-translate">
       <a class="navbar-brand" href="<%= title === 'index' ? '#' : '/' %>">
@@ -36,7 +36,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/admin" class="nav-link">
                 <i class="fas fa-user"></i> Admin
             </a>
           </li>

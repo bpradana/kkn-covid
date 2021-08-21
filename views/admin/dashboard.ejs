@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../components/head') %>
+
+<body>
+  <%- include('../components/navbar') %>
+
+  <div class="container navbar-padding">
+    <div class="row">
+      <div class="col">
+        <h2>Dashboard</h2>
+      </div>
+      <div class="col text-right">
+        <h2>
+          <button class="btn btn-primary" onclick="window.location.reload()">
+            <i class="fas fa-refresh"></i>
+          </button>
+        </h2>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nama</th>
+          <th scope="col">Alamat</th>
+          <th scope="col">Nomor HP</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.nama %></td>
+            <td><%= user.alamat %></td>
+            <td><%= user.no %></td>
+            <td>
+              <button class="link-button" type="button" data-toggle="modal" data-target="#gejalaModal_<%= user._id %>">
+                <% if (user.status_covid === 'positive') { %>
+                  <span class="badge badge-danger">Positive</span>
+                <% } else { %>
+                  <span class="badge badge-success">Negative</span>
+                <% } %>
+              </button>
+              <div class="modal fade" id="gejalaModal_<%= user._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="exampleModalLabel">
+                        <b>Gejala yang dirasakan</b>
+                      </h4>
+                    </div>
+                    <div class="modal-body">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Gejala</th>
+                            <th scope="col">Dirasakan</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% Object.keys(user.gejala).forEach(function(key) { %>
+                            <tr>
+                              <td><%= key %></td>
+                              <td>
+                                <% if(user.gejala[key]) {%>
+                                  <span class="badge badge-success">Ya</span>
+                                <% } else { %>
+                                  <span class="badge badge-danger">Tidak</span>
+                                <% } %>
+                              </td>
+                            </tr>
+                          <% }) %>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+  
+  <%- include('../components/footer') %>
+  <%- include('../components/scripts') %>
+</body>
+
+</html>

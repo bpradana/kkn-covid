@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const gejalaController = require('../controllers/gejalaController')
+const adminController = require('../controllers/adminController')
 
 router.get('/', (req, res) => {
   res.render('index', {
@@ -17,5 +18,8 @@ router.get('/', (req, res) => {
 router.post('/deteksi', gejalaController.postGejala)
 router.get('/deteksi/data-diri', gejalaController.indexGejala)
 router.post('/deteksi/data-diri', gejalaController.postDataDiri)
+
+router.get('/admin', adminController.loginAdmin)
+router.post('/admin', adminController.dashboardAdmin)
 
 module.exports = router
