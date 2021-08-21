@@ -26,6 +26,7 @@
           <th scope="col">Alamat</th>
           <th scope="col">Nomor HP</th>
           <th scope="col">Status</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -80,6 +81,78 @@
                   </div>
                 </div>
               </div>
+            </td>
+            <td>
+              <button class="link-button" type="button" data-toggle="modal" data-target="#updateModal_<%= user._id %>">
+                <span class="badge badge-info">
+                  <i class="fas fa-pen"></i>
+                </span>
+              </button>
+              <button class="link-button" type="button" data-toggle="modal" data-target="#deleteModal_<%= user._id %>">
+                <span class="badge badge-danger">
+                  <i class="fas fa-trash"></i>
+                </span>
+              </button>
+              
+              <div class="modal fade" id="updateModal_<%= user._id %>" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="exampleModalLabel">
+                        <b>Perbarui data <%= user.nama %>?</b>
+                      </h4>
+                    </div>
+                    <div class="modal-body">
+                      <form action="/admin/update/<%= user._id %>" method="POST" onsubmit="setTimeout(function(){window.location.reload();},500);">
+                        <div class="form-group">
+                          <label class="bmd-label-floating" for="nama">Nama</label>
+                          <input name="nama" type="text" class="form-control" autocomplete="off" value="<%= user.nama %>">
+                        </div>
+                        <div class="form-group">
+                          <label class="bmd-label-floating" for="alamat">Alamat</label>
+                          <input name="alamat" type="text" class="form-control" autocomplete="off" value="<%= user.alamat %>">
+                        </div>
+                        <div class="form-group">
+                          <label class="bmd-label-floating" for="no">Nomor HP</label>
+                          <input name="no" type="text" class="form-control" autocomplete="off" value="<%= user.no %>">
+                        </div>
+                        <div class="form-group">
+                          <label for=status_covid">Status COVID</label>
+                          <select class="form-control selectpicker" data-style="btn btn-link" id="status_covid" name="status_covid">
+                            <option value="positive" <%= user.status_covid === 'positive' ? 'selected' : '' %>>Positive</option>
+                            <option value="negative" <%= user.status_covid === 'negative' ? 'selected' : '' %>>Negative</option>
+                          </select>
+                        </div>
+                        <div class="text-right">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                          <button type="submit" class="btn btn-danger">Perbarui</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="deleteModal_<%= user._id %>" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="exampleModalLabel">
+                        <b>Hapus data <%= user.nama %>?</b>
+                      </h4>
+                    </div>
+                    <div class="modal-body">
+                      <form action="/admin/delete/<%= user._id %>" method="POST" onsubmit="setTimeout(function(){window.location.reload();},500);">
+                        <div class="text-right">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                          <button type="submit" class="btn btn-danger">Hapus</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </td>
           </tr>
         <% }); %>

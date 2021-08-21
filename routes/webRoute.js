@@ -21,5 +21,7 @@ router.post('/deteksi/data-diri', gejalaController.postDataDiri)
 
 router.get('/admin', adminController.loginAdmin)
 router.post('/admin', adminController.dashboardAdmin)
+router.post('/admin/delete/:id', adminController.deleteData)
+router.post('/admin/update/:id', adminController.updateData)
 
 module.exports = router

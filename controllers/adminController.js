@@ -24,3 +24,15 @@ exports.dashboardAdmin = async function (req, res) {
     }
   }
 }
+
+exports.deleteData = async function (req, res) {
+  let id = req.params.id
+  await User.findByIdAndDelete(id)
+  res.status(204).send()
+}
+
+exports.updateData = async function (req, res) {
+  let id = req.params.id
+  await User.findByIdAndUpdate(id, req.body)
+  res.status(204).send()
+}
