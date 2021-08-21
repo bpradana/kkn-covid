@@ -9,18 +9,21 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  nomor_telepon: {
+  no: {
     type: String,
     required: true
   },
   status_covid: {
-    type: Boolean,
-    required: true
-  },
-  gejala: [{
     type: String,
     required: true
-  }],
+  },
+  gejala: {
+    sakit_tenggorokan: String,
+    masalah_pernapasan: String,
+    menghadiri_pertemuan: String,
+    batuk_kering: String,
+    demam: String
+  }
 })
 
 module.exports = mongoose.model('User', UserSchema)

@@ -13,11 +13,22 @@
         </h3>
       </div>
       <div class="card-body">
-        <h4 class="card-title">Halo, <%= hasil_deteksi.nama %>! Yuk cek kondisi kamu.</h4>
+        <% if (hasil_deteksi.status_covid === 'positive') { %>
+          <h4 class="card-title">Anda memiliki gejala terinfeksi COVID-19. Segera hubungi Satgas COVID-19 setempat.</h4>
+        <% } else { %>
+          <h4 class="card-title">Anda tidak memiliki gejala terinfeksi COVID-19!</h4>
+        <% } %>
         <div class="text-right">
+          <% if (hasil_deteksi.status_covid === 'positive') { %>
+            <a href="https://wa.me/+62">
+              <button type="button" class="btn btn-warning">
+                <i class="fab fa-whatsapp"></i> WhatsApp Satgas COVID
+              </button>
+            </a>
+          <% } %>
           <a href="/">
             <button type="button" class="btn <%= hasil_deteksi.status_covid === 'positive' ? 'btn-danger' : 'btn-success' %>">
-              Beranda <i class="fas fa-home"></i>
+              <i class="fas fa-home"></i> Beranda
             </button>
           </a>
         </div>

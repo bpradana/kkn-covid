@@ -15,13 +15,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/deteksi', gejalaController.postGejala)
-
-router.get('/deteksi/data-diri', (req, res) => {
-  res.render('./deteksi/data-diri', {
-    title: 'deteksi'
-  })
-})
-
+router.get('/deteksi/data-diri', gejalaController.indexGejala)
 router.post('/deteksi/data-diri', gejalaController.postDataDiri)
 
 module.exports = router

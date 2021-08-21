@@ -1,3 +1,11 @@
+const User = require('../models/userModel')
+
+exports.indexGejala = async function (req, res) {
+  await res.render('./deteksi/data-diri', {
+    title: 'deteksi'
+  })
+}
+
 exports.getGejala = async function (req, res) {
   await res.send('use post method [sakit_tenggorokan, masalah_pernapasan, menghadiri_pertemuan, batuk_kering, demam]')
 }
@@ -72,7 +80,13 @@ function deteksi_covid(req) {
     alamat: req.body.alamat,
     no: req.body.no,
     status_covid: status_covid,
-    gejala: req.body
+    gejala: {
+      sakit_tenggorokan: (req.body.sakit_tenggorokan ? '1' : ''),
+      masalah_pernapasan: (req.body.masalah_pernapasan ? '1' : ''),
+      menghadiri_pertemuan: (req.body.menghadiri_pertemuan ? '1' : ''),
+      batuk_kering: (req.body.batuk_kering ? '1' : ''),
+      demam: (req.body.demam ? '1' : ''),
+    }
   }
 }
 
@@ -81,10 +95,14 @@ exports.postGejalaJson = async function (req, res) {
 }
 
 exports.postGejala = async function (req, res) {
-  console.log(deteksi_covid(req))
-  await res.render('./deteksi/hasil', { 'hasil_deteksi': deteksi_covid(req) })
+  let hasil_deteksi = deteksi_covid(req)
+  await User.create(hasil_deteksi);
+  await res.render('./deteksi/hasil', { 'hasil_deteksi': hasil_deteksi })
 }
 
 exports.postDataDiri = async function (req, res) {
+  if (!req.body.nama || !req.body.alamat || !req.body.no) {
+    await res.render('./deteksi/gagal')
+  }
   await res.render('./deteksi/kuesioner', { 'data_diri': req.body })
 }
