@@ -29,16 +29,28 @@
                 <div class="modal-body">
                   <form action="/admin/update/<%= kasus._id %>" method="POST" onsubmit="setTimeout(function(){window.location.reload();},500);">
                     <div class="form-group">
-                      <label class="bmd-label-floating" for="terkonfirmasi">Terkonfirmasi</label>
+                      <label for="terkonfirmasi">Terkonfirmasi</label>
                       <input name="terkonfirmasi" type="number" class="form-control" autocomplete="off" value="<%= kasus.terkonfirmasi %>">
                     </div>
                     <div class="form-group">
-                      <label class="bmd-label-floating" for="no">Sembuh</label>
-                      <input name="no" type="number" class="form-control" autocomplete="off" value="<%= kasus.sembuh %>">
+                      <label for="aktif">Aktif</label>
+                      <input name="aktif" type="number" class="form-control" autocomplete="off" value="<%= kasus.kasus_aktif %>">
                     </div>
                     <div class="form-group">
-                      <label class="bmd-label-floating" for="no">Sembuh</label>
-                      <input name="no" type="number" class="form-control" autocomplete="off" value="<%= kasus.sembuh %>">
+                      <label for="sembuh">Sembuh</label>
+                      <input name="sembuh" type="number" class="form-control" autocomplete="off" value="<%= kasus.sembuh %>">
+                    </div>
+                    <div class="form-group">
+                      <label for="meninggal">Meninggal</label>
+                      <input name="meninggal" type="number" class="form-control" autocomplete="off" value="<%= kasus.meninggal %>">
+                    </div>
+                    <div class="form-group">
+                      <label for="suspek">Suspek</label>
+                      <input name="suspek" type="number" class="form-control" autocomplete="off" value="<%= kasus.suspek %>">
+                    </div>
+                    <div class="form-group">
+                      <label for="probable">Probable</label>
+                      <input name="probable" type="number" class="form-control" autocomplete="off" value="<%= kasus.probable %>">
                     </div>
                     <div class="text-right">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
