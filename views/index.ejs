@@ -26,24 +26,60 @@
       <div class="section">
         <div class="text-center" id="statistik">
           <h2>
-            <b>Statistik COVID-19 Surakarta</b>
+            <b>Statistik COVID-19 Kelurahan Kepatihan Kulon</b>
           </h2>
+          <h3>
+            <b><%= kasus.tanggal %></b>
+          </h3>
           <hr>
           <div class="row">
             <div class="col-sm">
               <div class="card">
                 <div class="card-header card-header-danger">
-                  <h3 class="card-title">Konfirmasi</h3>
+                  <h3 class="card-title">Terkonfirmasi</h3>
                 </div>
                 <div class="card-body">
                   <h1>
-                    <b><%= konfirmasi %></b>
+                    <b><%= kasus.terkonfirmasi %></b>
                   </h1>
-                  <hr>
-                  <h3>Hari ini</h3>
-                  <h2>
-                    <b>+<%= konfirmasi_h %></b>
-                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h3 class="card-title">Kasus Aktif</h3>
+                </div>
+                <div class="card-body">
+                  <h1>
+                    <b><%= kasus.kasus_aktif %></b>
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h3 class="card-title">Sembuh</h3>
+                </div>
+                <div class="card-body">
+                  <h1>
+                    <b><%= kasus.sembuh %></b>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h3 class="card-title">Meninggal</h3>
+                </div>
+                <div class="card-body">
+                  <h1>
+                    <b><%= kasus.meninggal %></b>
+                  </h1>
                 </div>
               </div>
             </div>
@@ -54,13 +90,8 @@
                 </div>
                 <div class="card-body">
                   <h1>
-                    <b><%= suspek %></b>
+                    <b><%= kasus.suspek %></b>
                   </h1>
-                  <hr>
-                  <h3>Hari ini</h3>
-                  <h2>
-                    <b>+<%=suspek_h %></b>
-                  </h2>
                 </div>
               </div>
             </div>
@@ -71,13 +102,8 @@
                 </div>
                 <div class="card-body">
                   <h1>
-                    <b><%= probable %></b>
+                    <b><%= kasus.probable %></b>
                   </h1>
-                  <hr>
-                  <h3>Hari ini</h3>
-                  <h2>
-                    <b>+<%=probable_h %></b>
-                  </h2>
                 </div>
               </div>
             </div>

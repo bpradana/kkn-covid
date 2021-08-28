@@ -1,5 +1,6 @@
 require('dotenv').config()
 const User = require('../models/userModel')
+const Kasus = require('../models/kasusModel')
 
 exports.loginAdmin = async function (req, res) {
   await res.render('./admin/login')
@@ -12,11 +13,13 @@ exports.dashboardAdmin = async function (req, res) {
   else {
     if (req.body.username === process.env.ADMIN_USERNAME && req.body.password === process.env.ADMIN_PASSWORD) {
       let users = await User.find({})
+      let kasus = await Kasus.find({}).sort({date: -1})
 
       res.render('./admin/dashboard', {
         title: 'dashboard',
         login_info: req.body,
-        users: users
+        users: users,
+        kasus: kasus[0]
       })
     }
     else {

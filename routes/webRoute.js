@@ -2,10 +2,14 @@ const express = require('express')
 const router = express.Router()
 const gejalaController = require('../controllers/gejalaController')
 const adminController = require('../controllers/adminController')
+const Kasus = require('../models/kasusModel')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  let kasus = await Kasus.find({}).sort({date: -1})
+  
   res.render('index', {
     title: 'index',
+    kasus: kasus[0],
     konfirmasi: 1000,
     suspek: 1000,
     probable: 1000,
